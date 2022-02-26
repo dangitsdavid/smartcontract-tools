@@ -29,7 +29,7 @@ Subscription 120 is underfunded?
 
 ## check-rpc-blockheight (Bash)
 
-Checks RPC endpoint's block height in either single or dual (comparison) mode.
+Interactive script to RPC endpoint's block height in either single or dual (comparison) mode.
 
 | Flag | Description            |
 | ---- | ---------------------- |
@@ -43,7 +43,7 @@ Checks RPC endpoint's block height in either single or dual (comparison) mode.
 
 RPC endpoint selected
 
-How many RPCs (min: 1, max: 2)?
+How many RPCs? (min: 1, max: 2)
 2
 
 RPC1 websocket endpoint:

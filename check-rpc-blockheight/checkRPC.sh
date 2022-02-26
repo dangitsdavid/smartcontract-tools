@@ -1,7 +1,7 @@
 #!/bin/bash
 
 rpcCount () {
-  echo -e "How many RPCs (min: 1, max: 2)? "
+  echo -e "How many RPCs? (min: 1, max: 2)"
   read "RPCCount"
 }
 
