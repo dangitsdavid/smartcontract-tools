@@ -2,7 +2,7 @@
 
 A repo of smartcontract tools either for use or L&D.
 
-### Contents
+**Contents:**
 
 - [check-rinkeby-subs](https://github.com/dangitsdavid/smartcontract-tools#check-rinkeby-subs-python)
 - [check-rpc-blockheight](https://github.com/dangitsdavid/smartcontract-tools#check-rpc-blockheight-bash)
