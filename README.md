@@ -29,7 +29,7 @@ Subscription 120 is underfunded?
 
 ## check-rpc-blockheight (Bash)
 
-Interactive script to RPC endpoint's block height in either single or dual (comparison) mode.
+Interactive script to detect RPC endpoint's block height in either single or dual (comparison) mode.
 
 | Flag | Description            |
 | ---- | ---------------------- |
