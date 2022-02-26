@@ -18,7 +18,7 @@ Checks if Chainlink Ethereum Rinkeby VRF subscriptions are underfunded
 | -g, --gwei      | Gwei set in VRF request               |
 | -s, --subid     | Subscription ID                       |
 
-### Running the script:
+**Running the script:**
 
 ```
 ❯ python3 checkSubscription.py -gl 1000000 -g 30 -s 120
@@ -36,7 +36,7 @@ Checks RPC endpoint's block height in either single or dual (comparison) mode.
 | -r   | RPC Mode (https, http) |
 | -w   | WSS Mode (wss, ws)     |
 
-### Running the script:
+**Running the script:**
 
 ```
 ./checkRPC.sh -r
