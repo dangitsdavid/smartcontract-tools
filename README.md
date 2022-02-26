@@ -21,3 +21,38 @@ Checks if Chainlink Ethereum Rinkeby VRF subscriptions are underfunded
 Subscription 120 is underfunded?
  False
 ```
+
+## check-rpc-blockheight (Bash)
+
+Checks RPC endpoint's block height in either single or dual (comparison) mode.
+
+| Flag | Description            |
+| ---- | ---------------------- |
+| -r   | RPC Mode (https, http) |
+| -w   | WSS Mode (wss, ws)     |
+
+### Running the script:
+
+```
+./checkRPC.sh -r
+
+RPC endpoint selected
+
+How many RPCs (min: 1, max: 2)?
+2
+
+RPC1 websocket endpoint:
+https://rpc.ftm.tools
+RPC2 websocket endpoint:
+https://rpc.ftm.tools
+
+Processing...
+
+OUTPUT:
+RPC1's blockheight is: 32006652
+RPC2's blockheight is: 32006652
+
+Block height difference is: 0
+
+NOTE: Difference of 1 - 5 blocks height is normal.
+```
