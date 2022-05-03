@@ -30,7 +30,14 @@ singleResult () {
 doubleResult () {
   echo -e "\nOUTPUT:\nRPC1's blockheight is: $((blockHeightOne)) \nRPC2's blockheight is: $((blockHeightTwo))"
   heightDifference="$((blockHeightTwo - blockHeightOne))"
-  echo -e "\nBlock height difference is: $heightDifference\n\nNOTE: Difference of 1 - 5 blocks height is normal."
+  if [ $heightDifference -lt 0 ]; then
+    heightDiff=$((-heightDifference))
+    echo -e "\nBlock height difference is: $heightDiff\n"
+  else
+    heightDiff=$heightDifference
+    echo -e "\nBlock height difference is: $heightDiff\n"
+  fi
+  echo -e "NOTE: Difference of 1 - 5 blocks height is normal.\n"
 }
 
 checkWSS () {
@@ -39,14 +46,14 @@ checkWSS () {
   case $RPCCount in
     1)
       singleInput
-      blockHeight=$(wscat -c "$RPC1" -x '{"method":"eth_blockNumber","id":1}' | jq -r ."result")
+      blockHeight=$(wscat -c "$RPC1" -x '{"jsonrpc": "2.0","method": "eth_blockNumber","params": [],"id": "1"}' | jq -r ."result")
       singleResult
       exit 0
       ;;
     2)
       doubleInput
-      blockHeightOne=$(wscat -c "$RPC1" -x '{"method":"eth_blockNumber","id":1}' | jq -r ."result")
-      blockHeightTwo=$(wscat -c "$RPC2" -x '{"method":"eth_blockNumber","id":1}' | jq -r ."result")
+      blockHeightOne=$(wscat -c "$RPC1" -x '{"jsonrpc": "2.0","method": "eth_blockNumber","params": [],"id": "1"}' | jq -r ."result")
+      blockHeightTwo=$(wscat -c "$RPC2" -x '{"jsonrpc": "2.0","method": "eth_blockNumber","params": [],"id": "1"}' | jq -r ."result")
       doubleResult
       exit 0
       ;;
@@ -62,14 +69,14 @@ checkRPC () {
   case $RPCCount in
     1)
       singleInput
-      blockHeight=$(curl -s "$RPC1" -X POST -d '{"method":"eth_blockNumber","id":1}' -H "Content-Type: application/json" | jq -r ."result")
+      blockHeight=$(curl -s "$RPC1" -X POST -d '{"jsonrpc": "2.0","method": "eth_blockNumber","params": [],"id": "1"}' -H "Content-Type: application/json" | jq -r ."result")
       singleResult
       exit 0
       ;;
     2)
       doubleInput
-      blockHeightOne=$(curl -s "$RPC1" -X POST -d '{"method":"eth_blockNumber","id":1}' -H "Content-Type: application/json" | jq -r ."result")
-      blockHeightTwo=$(curl -s "$RPC2" -X POST -d '{"method":"eth_blockNumber","id":1}' -H "Content-Type: application/json" | jq -r ."result")
+      blockHeightOne=$(curl -s "$RPC1" -X POST -d '{"jsonrpc": "2.0","method": "eth_blockNumber","params": [],"id": "1"}' -H "Content-Type: application/json" | jq -r ."result")
+      blockHeightTwo=$(curl -s "$RPC2" -X POST -d '{"jsonrpc": "2.0","method": "eth_blockNumber","params": [],"id": "1"}' -H "Content-Type: application/json" | jq -r ."result")
       doubleResult
       exit 0
       ;;
